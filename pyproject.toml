@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_project"
+description = "pyproject template"
+readme = "README.md"
+requires-python = ">=3.8"
+version = "0.1.0"
+authors = [
+    {name = "author_name", email = "author_name@gmail.com"}
+]
+license = {text = "license"}
+dependencies = [
+    "torch>=1.12.1"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["my_project*"]
+exclude = ["my_package.tests*"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+version = {attr = "my_project.VERSION"}
+readme = {file = ["README.md"]}
+
+[tool.black]
+line_length = 80
+
+[tool.pyright]
+typeCheckingMode = "basic"
+
+reportIncompatibleMethodOverride = "information"
+reportPrivateImportUsage = "information"
+reportOptionalSubscript = "none"
+
+pythonVersion = "3.8"
+pythonPlatform = "Linux"
